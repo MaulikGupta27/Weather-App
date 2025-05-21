@@ -11,3 +11,5 @@ A sleek and responsive weather app built using **HTML**, **CSS**, and **JavaScri
 - 🌬️ Wind speed
 - 🌫️ Cloud cover percentage
 - 🌅 Sunrise and 🌇 sunset times (local time)
+
+- API key is managed separately in a `config.js` file for security and modularity
