@@ -1,0 +1,268 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #60a5fa, #2563eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: gradientShift 15s ease infinite;
+}
+
+.weather-card {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Box Styles */
+.search-box {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.search-box button {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-box button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.search-box button i {
+  color: white;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.search-box button:hover i {
+  transform: scale(1.1);
+}
+
+.location {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.location h1 {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.location h1:hover {
+  transform: scale(1.05);
+}
+
+.location p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  transition: opacity 0.3s ease;
+}
+
+.location p:hover {
+  opacity: 1;
+  color: white;
+}
+
+.current-temp {
+  text-align: center;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.current-temp:hover {
+  transform: scale(1.02);
+}
+
+.current-temp h2 {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  transition: text-shadow 0.3s ease;
+}
+
+.current-temp h2:hover {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.current-temp p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.current-temp p:hover {
+  color: white;
+}
+
+.weather-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.weather-item, .sun-item {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.weather-item:hover, .sun-item:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.weather-item i, .sun-item i {
+  color: white;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.weather-item:hover i, .sun-item:hover i {
+  transform: scale(1.2);
+  color: #ffd700;
+}
+
+.weather-info span {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  display: block;
+  margin-bottom: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.weather-info p {
+  color: white;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+
+.weather-item:hover .weather-info span,
+.sun-item:hover .weather-info span {
+  color: white;
+}
+
+.weather-item:hover .weather-info p,
+.sun-item:hover .weather-info p {
+  transform: scale(1.05);
+}
+
+.sun-times {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.sun-item {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.sun-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.2) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sun-item:hover::before {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .weather-card {
+      padding: 1.5rem;
+  }
+
+  .search-box {
+      flex-direction: row;
+      gap: 0.5rem;
+  }
+
+  .search-box input {
+      padding: 0.6rem 0.8rem;
+      font-size: 0.9rem;
+  }
+
+  .search-box button {
+      width: 38px;
+      height: 38px;
+  }
+
+  .location h1 {
+      font-size: 2rem;
+  }
+
+  .current-temp h2 {
+      font-size: 3rem;
+  }
+
+  .weather-grid {
+      gap: 0.75rem;
+  }
+
+  .weather-item, .sun-item {
+      padding: 0.75rem;
+  }
+}

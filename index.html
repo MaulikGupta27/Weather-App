@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js" defer></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="weather-card">
+            <!-- Search Bar -->
+            <div class="search-box">
+                <input type="text" placeholder="Enter city name" id="search-input">
+                <button type="button" id="search-button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <!-- Location -->
+            <div class="location">
+                <h1 id="h1-location">Bangalore</h1>
+            </div>
+
+            <!-- Current Temperature -->
+            <div class="current-temp">
+                <h2 id="h2-current-temp">25.27°C</h2>
+                <p id="p-current-temp">Scattered Clouds</p>
+            </div>
+
+            <!-- Weather Details Grid -->
+            <div class="weather-grid">
+                <div class="weather-item">
+                    <i class="fas fa-temperature-high"></i>
+                    <div class="weather-info">
+                        <span>Feels Like</span>
+                        <p id="p-feels-like">25.86°C</p>
+                    </div>
+                </div>
+                <div class="weather-item">
+                    <i class="fas fa-droplet"></i>
+                    <div class="weather-info">
+                        <span>Humidity</span>
+                        <p id="p-humidity">77%</p>
+                    </div>
+                </div>
+                <div class="weather-item">
+                    <i class="fas fa-wind"></i>
+                    <div class="weather-info">
+                        <span>Wind Speed</span>
+                        <p id="p-wind-speed">2.57 m/s</p>
+                    </div>
+                </div>
+                <div class="weather-item">
+                    <i class="fas fa-cloud"></i>
+                    <div class="weather-info">
+                        <span>Cloud Cover</span>
+                        <p id="p-cloud-cover">40%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sunrise/Sunset -->
+            <div class="sun-times">
+                <div class="sun-item">
+                    <i class="fas fa-sun"></i>
+                    <div class="weather-info">
+                        <span>Sunrise</span>
+                        <p id="p-sunrise">6:30:05 AM</p>
+                    </div>
+                </div>
+                <div class="sun-item">
+                    <i class="fas fa-moon"></i>
+                    <div class="weather-info">
+                        <span>Sunset</span>
+                        <p id="p-sunset">6:45:27 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
